@@ -7,9 +7,9 @@ const SaucesSchema  = mongoose.Schema({
   description: { type: String, required: true },
   mainPepper: { type: String, required: true },
   imageUrl: { type: String, required: true },
-  heat: { type: String, required: true },
-  likes: { type: String },
-  dislikes: { type: String },
+  heat: { type: Number, required: true },
+  likes: { type: Number },
+  dislikes: { type: Number },
   usersLiked : {type: Array, "default" : []},
   usersDisliked : {type: Array, "default" : []}
 });

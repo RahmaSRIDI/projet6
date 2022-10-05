@@ -1,4 +1,3 @@
-
 const sauces = require('../models/sauce');
 
 
@@ -80,7 +79,9 @@ exports.likeDislikeSauce = (req, res, next) => {
     console.log('like a sause');
     sauces.updateOne({_id: req.params.id}, {$inc: {likes: req.body.like++}, $push: {usersLiked: req.body.userId}})
           .then(sauce => res.status(200).json({message: 'Like ajouté !'}))
-          .catch(error => res.status(400).json({error}))
+          .catch(error =>{ console.log(error); 
+            res.status(400).json({error})
+        })
   } else if (req.body.like === -1) {
     console.log('dislike a sause');
     sauces.updateOne({ _id: req.params.id }, { $inc: { dislikes: (req.body.like++) * -1 }, $push: { usersDisliked: req.body.userId } })
