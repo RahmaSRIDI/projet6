@@ -1,9 +1,10 @@
 const http = require('http');
 const express = require('express');
 
+// Déclaration des routes
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
-
+ //Permet de lire le body de la requête HTTP
 const app = express();
 const bp = require('body-parser')
 app.use(bp.json())
@@ -29,10 +30,12 @@ mongoose.connect('mongodb+srv://user1:Azerty123@cluster0.pk1rsdv.mongodb.net/?re
    .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
-
-   
+// permet de simplifier les routes
 app.use('/api/auth', userRoutes);
 app.use('/api', sauceRoutes);
+
+// Pour Sauvegarder limage en local
 const path = require('path');
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
 module.exports = app;

@@ -5,7 +5,7 @@ const sauceCtrl = require('../controllers/sauce');
 const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
 
-
+//sécurise les API en imopsant l'authentification
 router.get('/sauces', auth, sauceCtrl.getAllSauces);
 router.post('/sauces', auth, multer, sauceCtrl.createSauce);
 router.get('/sauces/:id', auth, sauceCtrl.getSauceById);

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+// mode de données sauce
 const SaucesSchema  = mongoose.Schema({
   userId: { type: String, required: true, unique: true },
   name: { type: String, required: true },

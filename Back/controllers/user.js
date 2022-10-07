@@ -1,8 +1,10 @@
+//Construire le parcours utilisateur
 const bcrypt = require('bcrypt');
 const utilisateur = require('../models/utilisateur');
 
 const jwt = require('jsonwebtoken');
 
+//Créer un compte 
 exports.signup = (req, res, next) => {
 
     bcrypt.hash(req.body.password, 10)
@@ -25,7 +27,7 @@ exports.signup = (req, res, next) => {
             res.status(500).json({ error })
         });
 };
-
+// Se connecter 
 exports.login = (req, res, next) => {
     utilisateur.findOne({ email: req.body.email })
         .then(user => {
@@ -38,6 +40,7 @@ exports.login = (req, res, next) => {
                         return res.status(401).json({ message: 'Paire login/mot de passe incorrecte' });
                     }
                     res.status(200).json({
+                        // Disposer d'un token valide qui dure 24h
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
