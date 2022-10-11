@@ -64,7 +64,7 @@ exports.likeDislikeSauce = (req, res, next) => {
           .then(sauce => res.status(200).json({message: 'Dislike ajouté !'}))
           .catch(error => res.status(400).json({error}))
   }
-  else { //Aucun de s deux
+  else { //Aucun des deux
     sauces.findOne({ _id: req.params.id })
           .then(sauce => {
               if (sauce.usersLiked.includes(req.body.userId)) {

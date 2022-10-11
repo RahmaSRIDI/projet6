@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // mode de données sauce
 const SaucesSchema  = mongoose.Schema({
-  userId: { type: String, required: true, unique: true },
+  userId: { type: String, required: true },
   name: { type: String, required: true },
   manufacturer: { type: String, required: true },
   description: { type: String, required: true },
@@ -12,6 +12,21 @@ const SaucesSchema  = mongoose.Schema({
   dislikes: { type: Number },
   usersLiked : {type: Array, "default" : []},
   usersDisliked : {type: Array, "default" : []}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 });
 
 
