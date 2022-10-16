@@ -30,4 +30,12 @@ Clonez le repository https://github.com/RahmaSRIDI/projet6.git
 
 * lancer le navigateur sur l'adresse http://localhost:4200
 
+* lors de la création d'un compte, vous devez saisir une mot de passe qui contient au moins :
+
+- un caractère majuscule,
+- un caractère minuscule
+- un numéro
+- un caractère spécial
+
+
 
