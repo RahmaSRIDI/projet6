@@ -36,6 +36,7 @@ app.use('/api', sauceRoutes);
 
 // Pour Sauvegarder limage en local
 const path = require('path');
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
